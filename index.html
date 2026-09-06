@@ -51,7 +51,10 @@
     display:grid;grid-template-columns:1.15fr .85fr;
     gap:32px;padding:48px 0 36px;
     border-bottom:1.5px solid var(--line);
+    align-items:start;
   }
+  .hero-left{min-width:0}
+  .hero-right{min-width:0}
   .hero h1{
     font-family: Georgia, "Times New Roman", serif;
     font-size:clamp(30px, 3.8vw, 42px);
@@ -97,7 +100,8 @@
   .meta-row strong{color:var(--ink);font-weight:600;text-transform:none;letter-spacing:0;font-size:12.5px}
   .meta-row a strong{border-bottom:1px solid var(--ink)}
   .meta-row a strong:hover{color:var(--accent);border-color:var(--accent)}
-  .cta-row{display:flex;gap:10px;margin-top:14px}
+  .cta-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+
   .btn{
     display:inline-block;font-family: ui-monospace, monospace;
     font-size:11px;letter-spacing:.08em;text-transform:uppercase;
@@ -227,6 +231,70 @@
     }
     .nav-links a:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
   }
+  .unlock-wrap{display:flex;align-items:center;gap:8px;margin-top:12px;max-width:520px;min-width:0}
+  .unlock-btn{
+    width:22px;height:22px;flex-shrink:0;margin-top:0;
+    border:1.5px solid var(--line);background:#fff;
+    display:inline-flex;align-items:center;justify-content:center;
+    font-size:10px;cursor:pointer;transition:all .2s ease;
+    color:var(--ink);line-height:1;border-radius:50%;
+  }
+  .unlock-btn:hover{background:var(--ink);color:#fff;transform:scale(1.08)}
+  .unlock-btn[aria-expanded="true"]{background:var(--ink);color:#fff;transform:rotate(90deg)}
+  .unlock-hint{flex-shrink:0;display:inline-flex;align-items:center;line-height:0;opacity:.95}
+  .unlock-hint video{width:68px;height:36px;object-fit:cover;display:block}
+  .unlock-wrap.open .unlock-hint{display:none}
+  .unlock-msg{
+    flex:1;min-width:0;
+    font-size:13.5px;line-height:1.6;color:#2a2a2a;
+    font-style:italic;white-space:normal;word-break:break-word;
+    opacity:0;visibility:hidden;transform:translateY(2px);
+    transition:opacity .22s ease, transform .22s ease;
+    border-right:2px solid transparent;padding-right:3px;
+  }
+  .unlock-msg.open{opacity:1;visibility:visible;transform:translateY(0);border-right-color:var(--accent)}
+  .unlock-msg.typing{animation:caretBlink .7s step-end infinite}
+  .unlock-msg.done{border-right-color:transparent;animation:none;user-select:text;-webkit-user-select:text}
+  @keyframes caretBlink{50%{border-color:transparent}}
+  #sg-boot{
+    position:fixed;inset:0;z-index:9999;
+    background:#050508;color:#ffb84d;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  #sg-boot.hide{opacity:0;pointer-events:none;transition:opacity .7s ease}
+  #sg-boot::before{
+    content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(0deg, rgba(255,184,77,.06) 0 1px, transparent 1px 3px);
+    pointer-events:none;
+  }
+  #sg-boot::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,.7) 100%);
+    pointer-events:none;
+  }
+  .sg-inner{position:relative;width:min(560px,92vw);border:1.5px solid #ffb84d; background:#0a0a0f; padding:18px 18px 14px; box-shadow:0 0 30px rgba(255,184,77,.25), inset 0 0 40px rgba(255,184,77,.08)}
+  .sg-head{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#ffb84d;border-bottom:1px solid rgba(255,184,77,.3);padding-bottom:8px;margin-bottom:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+  .sg-head span:last-child{color:#b8ff9a}
+  .sg-divergence{display:flex;align-items:baseline;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+  .sg-divergence span:first-child{font-size:10px;letter-spacing:.14em;opacity:.7}
+  .sg-meter{font-size:38px;letter-spacing:.06em;font-weight:700;color:#ffb84d;text-shadow:0 0 12px rgba(255,184,77,.9), 0 0 30px rgba(255,184,77,.5);line-height:1}
+  .sg-pct{font-size:16px;opacity:.6}
+  .sg-log{font-size:11px;line-height:1.7;color:#d8ffb0;min-height:72px;opacity:.95}
+  .sg-log div{white-space:nowrap;overflow:hidden}
+  .sg-log b{color:#ffb84d}
+  .sg-bar{height:3px;background:rgba(255,184,77,.15);margin:12px 0 10px;overflow:hidden}
+  .sg-fill{height:100%;width:0%;background:#ffb84d;box-shadow:0 0 8px #ffb84d;transition:width .25s linear}
+  .sg-foot{font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.7;display:flex;gap:8px;align-items:center}
+  .sg-blink{animation:sgBlink .7s step-end infinite}
+  @keyframes sgBlink{50%{opacity:0}}
+  @keyframes sgFlicker{0%,100%{opacity:1} 50%{opacity:.97} 52%{opacity:.92}}
+  #sg-boot{animation:sgFlicker 3s infinite}
+  @media(max-width:520px){
+    .sg-meter{font-size:28px}
+    .sg-inner{padding:14px}
+  }
   @media(max-width:520px){
     .wrap{padding:0 16px}
     nav.top{padding:14px 0}
@@ -241,6 +309,15 @@
 </style>
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+<div id="sg-boot" role="dialog" aria-label="Steins Gate boot">
+  <div class="sg-inner">
+    <div class="sg-head"><span>STEINS;GATE — FUTURE GADGET LAB</span><span>FG-001</span></div>
+    <div class="sg-divergence"><span>WORLD LINE DIVERGENCE</span><span class="sg-meter" id="sgMeter">0.000000</span><span class="sg-pct">%</span></div>
+    <div class="sg-log" id="sgLog"></div>
+    <div class="sg-bar"><div class="sg-fill" id="sgFill"></div></div>
+    <div class="sg-foot">EL PSY KONGROO<span class="sg-blink">_</span><span style="margin-left:auto;opacity:.45;letter-spacing:.08em">click / press any key to skip</span></div>
+  </div>
+</div>
 <div class="wrap">
   <nav class="top">
     <div class="brand">K. Panio <span>— 2025</span></div>
@@ -259,7 +336,12 @@
         <h1>Kenneth C. <em>Panio</em></h1>
       </div>
       <span class="accent-line"></span>
-      <p class="lead">I build fast, usable web tools — scrapers, bots, proxies, CLI utilities. Focused on modern UIs and practical automation. I use AI where it helps with prototyping and scripting, but ship clean, maintainable code. <br>Hire me to unlock my full potential : ) </p>
+      <p class="lead">I build fast, usable web tools — scrapers, bots, proxies, CLI utilities. Focused on modern UIs and practical automation. I use AI where it helps with prototyping and scripting, but ship clean, maintainable code.</p>
+      <div class="unlock-wrap">
+        <button class="unlock-btn" id="unlockBtn" aria-expanded="false" aria-label="Reveal hidden message" title="psst... click me">▸</button>
+        <span class="unlock-hint" aria-hidden="true"><video autoplay loop muted playsinline width="68" height="36" poster="https://media1.tenor.com/m/oaajVuH1mKIAAAAC/steins-gate-divergence-meter.gif" style="display:block;border:1px solid var(--line);pointer-events:auto"><source src="https://media.tenor.com/oaajVuH1mKIAAAPo/steins-gate-divergence-meter.mp4" type="video/mp4"></video></span>
+        <span class="unlock-msg" id="unlockMsg" aria-hidden="true"></span>
+      </div>
     </div>
     <div class="hero-right">
       <div class="meta-box">
@@ -272,6 +354,7 @@
         <a class="btn btn-ghost" href="https://github.com/ken-py-dev" target="_blank">GitHub</a>
       </div>
       <div class="availability"><span class="dot-live"></span> Available for freelance & collaborations</div>
+
     </div>
   </header>
 
@@ -366,6 +449,89 @@
   </footer>
 </div>
 <script>
+(function(){
+  const boot=document.getElementById('sg-boot');
+  const meter=document.getElementById('sgMeter');
+  const logEl=document.getElementById('sgLog');
+  const fill=document.getElementById('sgFill');
+  
+  document.body.style.overflow='hidden';
+  const lines=[
+    "> Initializing kernel.phi … <b>OK</b>",
+    "> Loading divergence meter … <b>SYNC</b>",
+    "> Connecting to @CHANNEL …",
+    "> Attractor field detected — shifting …",
+    "> STEINS;GATE divergence <b>1.048596%</b> locked"
+  ];
+  let li=0;
+  function addLine(){
+    if(li>=lines.length) return;
+    const d=document.createElement('div');
+    d.innerHTML=lines[li];
+    d.style.opacity='0';
+    logEl.appendChild(d);
+    requestAnimationFrame(()=>d.style.transition='opacity .25s', d.style.opacity='1');
+    li++;
+    fill.style.width=(li/lines.length*100)+'%';
+    if(li<lines.length) setTimeout(addLine, 420);
+  }
+  addLine();
+  let v=0, target=1.048596, start=performance.now(), dur=2600;
+  function tick(t){
+    let p=Math.min((t-start)/dur,1);
+    let e=1-Math.pow(1-p,3);
+    v=e*target;
+    if(p>0.82 && Math.random()<0.12) v+= (Math.random()-0.5)*0.02;
+    meter.textContent=v.toFixed(6).padStart(8,'0');
+    if(p<1) requestAnimationFrame(tick);
+    else meter.textContent="1.048596";
+  }
+  requestAnimationFrame(tick);
+  let done=false;
+  function finish(){
+    if(done) return; done=true;
+    boot.classList.add('hide');
+    setTimeout(()=>{ boot.remove(); document.body.style.overflow=''; },750);
+  }
+  setTimeout(finish, 3400);
+  boot.addEventListener('click', finish);
+  window.addEventListener('keydown', finish, {once:true});
+})();
+const btn=document.getElementById('unlockBtn');
+const msg=document.getElementById('unlockMsg');
+const wrap=document.querySelector('.unlock-wrap');
+const fullText="Hire me to unlock my full potential : ) — Warning: side effects may include 24/7 bug fixes, code that works on the first try (rare DLC), and me pretending Stack Overflow is my second home.";
+let typingTimer=null, idx=0, isOpen=false;
+function typeWrite(){
+  msg.textContent="";
+  msg.classList.add('open','typing');
+  msg.classList.remove('done');
+  msg.setAttribute('aria-hidden','false');
+  wrap.classList.add('open');
+  idx=0;
+  clearInterval(typingTimer);
+  typingTimer=setInterval(()=>{
+    msg.textContent=fullText.slice(0,idx+1);
+    idx++;
+    if(idx>=fullText.length){
+      clearInterval(typingTimer);
+      msg.classList.remove('typing');
+      msg.classList.add('done');
+    }
+  },28);
+}
+function collapse(){
+  clearInterval(typingTimer);
+  msg.classList.remove('open','typing','done');
+  msg.setAttribute('aria-hidden','true');
+  wrap.classList.remove('open');
+  setTimeout(()=>msg.textContent="",300);
+}
+btn.addEventListener('click',()=>{
+  isOpen=!isOpen;
+  btn.setAttribute('aria-expanded', isOpen);
+  if(isOpen) typeWrite(); else collapse();
+});
 document.addEventListener('contextmenu',e=>e.preventDefault());
 document.addEventListener('copy',e=>e.preventDefault());
 document.addEventListener('cut',e=>e.preventDefault());
