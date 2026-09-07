@@ -1,0 +1,8 @@
+[
+  { "label": "Languages", "value": "C · C++ · Python · JavaScript" },
+  { "label": "Frontend", "value": "HTML5 · CSS3 · Tailwind CSS" },
+  { "label": "Backend", "value": "Node.js / Express · Flask · REST APIs · Jinja" },
+  { "label": "Database", "value": "MongoDB · PostgreSQL · SQLAlchemy" },
+  { "label": "AI & Automation", "value": "API integration · scripting · workflow automation" },
+  { "label": "Tools", "value": "Git · CLI · rapid prototyping" }
+]

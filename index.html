@@ -26,7 +26,6 @@
   }
   a{color:inherit;text-decoration:none}
   .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
-  /* nav */
   nav.top{
     display:flex;justify-content:space-between;align-items:center;
     padding:18px 0 16px;
@@ -46,7 +45,6 @@
     color:var(--muted);border-bottom:1px solid transparent;padding-bottom:2px;
   }
   .nav-links a:hover{color:var(--ink);border-color:var(--ink)}
-  /* hero */
   .hero{
     display:grid;grid-template-columns:1.15fr .85fr;
     gap:32px;padding:48px 0 36px;
@@ -82,9 +80,7 @@
   .hero-left p.lead{
     font-size:16.5px;line-height:1.6;color:#2a2a2a;max-width:520px;
   }
-  .hero-right{
-    padding-top:6px;
-  }
+  .hero-right{padding-top:6px}
   .meta-box{
     border:1.5px solid var(--line);
     padding:16px 16px 14px;
@@ -101,7 +97,6 @@
   .meta-row a strong{border-bottom:1px solid var(--ink)}
   .meta-row a strong:hover{color:var(--accent);border-color:var(--accent)}
   .cta-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
-
   .btn{
     display:inline-block;font-family: ui-monospace, monospace;
     font-size:11px;letter-spacing:.08em;text-transform:uppercase;
@@ -116,7 +111,6 @@
     font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px;
   }
   .dot-live{width:7px;height:7px;background:#1a9e32;border-radius:50%;display:inline-block;box-shadow:0 0 0 4px rgba(26,158,50,.15)}
-  /* sections */
   section{padding:28px 0;border-bottom:1px solid var(--line-light)}
   section:last-of-type{border-bottom:none}
   .section-head{
@@ -131,12 +125,10 @@
     font-size:22px;font-weight:400;letter-spacing:-.02em;
   }
   .section-head .rule{flex:1;height:1px;background:var(--line-light);margin-left:8px}
-  /* objective */
   .objective{
     font-size:15px;line-height:1.7;color:#2b2b2b;max-width:760px;
   }
   .objective strong{font-weight:600}
-  /* skills */
   .skills{
     display:grid;grid-template-columns:repeat(3,1fr);gap:0;
     border:1.5px solid var(--line);background:#fff;
@@ -151,7 +143,6 @@
     font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;
   }
   .skill p{font-size:13.5px;line-height:1.5;color:var(--ink)}
-  /* projects */
   .projects{display:flex;flex-direction:column}
   .project{
     display:grid;grid-template-columns:56px 1fr auto;
@@ -177,7 +168,6 @@
     font-family: ui-monospace, monospace;
     font-size:13px;padding-top:6px;color:var(--muted);
   }
-  /* two col bottom */
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px}
   .list-plain{list-style:none}
   .list-plain li{
@@ -195,7 +185,6 @@
   .t-title{font-size:13.5px;font-weight:600}
   .t-place{font-size:13px;color:var(--muted)}
   .t-desc{font-size:13px;color:#3a3a3a;margin-top:4px;line-height:1.5}
-  /* contact */
   .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1.5px solid var(--line);background:#fff}
   .contact-cell{padding:16px;text-align:left;border-right:1px solid var(--line-light)}
   .contact-cell:last-child{border-right:none}
@@ -320,7 +309,7 @@
 </div>
 <div class="wrap">
   <nav class="top">
-    <div class="brand">K. Panio <span>— 2025</span></div>
+    <div class="brand" id="brand"></div>
     <div class="nav-links">
       <a href="#projects"><i class="fa-solid fa-diagram-project"></i> Projects</a>
       <a href="#stack"><i class="fa-solid fa-layer-group"></i> Stack</a>
@@ -330,13 +319,13 @@
 
   <header class="hero">
     <div class="hero-left">
-      <div class="kicker">Web Developer</div>
+      <div class="kicker" id="kicker"></div>
       <div class="hero-title-row">
-        <div class="profile-square"><img src="https://i.imgur.com/hitZna0.jpeg" alt="Kenneth C. Panio"></div>
-        <h1>Kenneth C. <em>Panio</em></h1>
+        <div class="profile-square"><img id="profileImg" alt=""></div>
+        <h1 id="profileName"></h1>
       </div>
       <span class="accent-line"></span>
-      <p class="lead">I build fast, usable web tools — scrapers, bots, proxies, CLI utilities. Focused on modern UIs and practical automation. I use AI where it helps with prototyping and scripting, but ship clean, maintainable code.</p>
+      <p class="lead" id="profileBio"></p>
       <div class="unlock-wrap">
         <button class="unlock-btn" id="unlockBtn" aria-expanded="false" aria-label="Reveal hidden message" title="psst... click me">▸</button>
         <span class="unlock-hint" aria-hidden="true"><video autoplay loop muted playsinline width="68" height="36" poster="https://media1.tenor.com/m/oaajVuH1mKIAAAAC/steins-gate-divergence-meter.gif" style="display:block;border:1px solid var(--line);pointer-events:auto"><source src="https://media.tenor.com/oaajVuH1mKIAAAPo/steins-gate-divergence-meter.mp4" type="video/mp4"></video></span>
@@ -344,126 +333,132 @@
       </div>
     </div>
     <div class="hero-right">
-      <div class="meta-box">
-        <div class="meta-row"><span>GitHub</span><a href="https://github.com/ken-py-dev" target="_blank"><strong>github.com/ken-py-dev →</strong></a></div>
-        <div class="meta-row"><span>LinkedIn</span><a href="https://linkedin.com/in/kenneth-panio" target="_blank"><strong>linkedin.com/in/kenneth-panio →</strong></a></div>
-        <div class="meta-row"><span>Resume</span><a href="resume.pdf" target="_blank"><strong>resume.pdf →</strong></a></div>
-      </div>
+      <div class="meta-box" id="socialsBox"></div>
       <div class="cta-row">
-        <a class="btn btn-primary" href="mailto:nethriondev@gmail.com">Email me</a>
-        <a class="btn btn-ghost" href="https://github.com/ken-py-dev" target="_blank">GitHub</a>
+        <a class="btn btn-primary" id="ctaEmail" href="#">Email me</a>
+        <a class="btn btn-ghost" id="ctaGithub" target="_blank" href="#">GitHub</a>
       </div>
-      <div class="availability"><span class="dot-live"></span> Available for freelance & collaborations</div>
-
+      <div class="availability" id="availability"></div>
     </div>
   </header>
 
   <section id="stack">
     <div class="section-head"><span class="section-num">01 —</span><h2>Stack</h2><span class="rule"></span></div>
-    <div class="skills">
-      <div class="skill"><label>Languages</label><p>C · C++ · Python · JavaScript</p></div>
-      <div class="skill"><label>Frontend</label><p>HTML5 · CSS3 · Tailwind CSS</p></div>
-      <div class="skill"><label>Backend</label><p>Node.js / Express · Flask · REST APIs · Jinja</p></div>
-      <div class="skill"><label>Database</label><p>MongoDB · PostgreSQL · SQLAlchemy</p></div>
-      <div class="skill"><label>AI & Automation</label><p>API integration · scripting · workflow automation</p></div>
-      <div class="skill"><label>Tools</label><p>Git · CLI · rapid prototyping</p></div>
-    </div>
+    <div class="skills" id="stackGrid"></div>
   </section>
 
   <section id="projects">
     <div class="section-head"><span class="section-num">02 —</span><h2>Selected work</h2><span class="rule"></span></div>
-    <div class="projects">
-      <div class="project">
-        <div class="p-num">01 / 04</div>
-        <div>
-          <h3>Web Scraper API</h3>
-          <p>REST API that scrapes and normalizes data from multiple sources and returns clean JSON. Implemented in both Node.js and Python (Flask), with rate-limiting and error handling.</p>
-          <div class="tags"><span class="tag">Node.js</span><span class="tag">Python</span><span class="tag">REST</span></div>
-        </div>
-        <div class="p-arrow">↗</div>
-      </div>
-      <div class="project">
-        <div class="p-num">02 / 04</div>
-        <div>
-          <h3><a href="https://github.com/ken-py-dev/proxy-embed" target="_blank">Proxy Embed ↗</a></h3>
-          <p>Custom reverse proxy to handle and reroute web traffic securely. Handles headers, CORS, and rewrite rules without leaking origin.</p>
-          <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Networking</span></div>
-        </div>
-        <div class="p-arrow">↗</div>
-      </div>
-      <div class="project">
-        <div class="p-num">03 / 04</div>
-        <div>
-          <h3>Telegram & Facebook Chatbots </h3>
-          <p>Conversational bots using platform APIs for real-time commands, notifications, and task handling. Built in Node.js and Python, deployed with webhooks.</p>
-          <div class="tags"><span class="tag">Node.js</span><span class="tag">Python</span><span class="tag">Automation</span></div>
-        </div>
-        <div class="p-arrow">↗</div>
-      </div>
-      <div class="project">
-        <div class="p-num">04 / 04</div>
-        <div>
-          <h3><a href="https://github.com/ken-py-dev/audio_converter_cli" target="_blank">Audio Converter CLI ↗</a></h3>
-          <p>Terminal tool for batch-converting and compressing audio files. Built in Python, focused on speed and small output size with simple flags.</p>
-          <div class="tags"><span class="tag">Python</span><span class="tag">CLI</span><span class="tag">Batch</span></div>
-        </div>
-        <div class="p-arrow">↗</div>
-      </div>
-            <div class="project">
-        <div class="p-num">05 / 04</div>
-        <div>
-          <h3><a href="" target="_blank">Neth Orion DDOS ↗</a></h3>
-          <p>network stress-testing tool built for cybersecurity research. It simulates high-concurrency traffic in an isolated lab environment to analyze server resilience and evaluate the effectiveness of rate-limiting and DDoS mitigation defenses.</p>
-          <div class="tags"><span class="tag">Node.js</span><span class="tag">CLI</span><span class="tag">UDP</span><span class="tag">TCP</span><span class="tag">Flood</span></div>
-        </div>
-        <div class="p-arrow">↗</div>
-            </div>
-    </div>
+    <div class="projects" id="projectsList"></div>
   </section>
 
   <section>
     <div class="two-col">
       <div>
         <div class="section-head"><span class="section-num">03 —</span><h2>Certifications</h2><span class="rule"></span></div>
-        <ul class="list-plain">
-          <li><a href="https://www.credly.com/badges/0dfa7c67-be01-4928-ae78-63493a17999f" target="_blank"><div><div class="name">Prompt Like an Engineer ↗</div><div class="org">Cisco Networking Academy</div></div></a></li>
-          <li><a href="https://www.credly.com/badges/b9490645-43b6-4566-95cc-4a333b0a6fb9" target="_blank"><div><div class="name">IT Customer Support Basics ↗</div><div class="org">Cisco Networking Academy</div></div></a></li>
-          <li><a href="https://www.credly.com/badges/16a61481-7222-4b1c-a736-c3f0a16c84e9" target="_blank"><div><div class="name">Introduction to Cybersecurity ↗</div><div class="org">Cisco Networking Academy</div></div></a></li>
-          <li><a href="https://www.credly.com/badges/0f6e3187-43de-46ef-a1d4-3cca661c60ac" target="_blank"><div><div class="name">Introduction to Modern AI ↗</div><div class="org">Cisco Networking Academy</div></div></a></li>
-        </ul>
+        <ul class="list-plain" id="certsList"></ul>
       </div>
       <div>
         <div class="section-head"><span class="section-num">04 —</span><h2>Education & Experience</h2><span class="rule"></span></div>
-        <ul class="timeline">
-          <li><span class="t-date">2024—2028</span><div><div class="t-title">BS in Information Systems</div><div class="t-place" style="display:flex;align-items:center;gap:6px"><img src="https://www.danaotechnologicalcollege.com/storage/general_logo/574f4669-3372-4abe-b684-db147652efe5.webp" alt="DTC logo" style="width:20px;height:20px;object-fit:cover;background:#fff;border:1px solid var(--line-light);border-radius:50%;pointer-events:auto"> <a href="https://www.danaotechnologicalcollege.com/" target="_blank">Danao Technological College ↗</a></div></div></li>
-          <li><span class="t-date">2018—2024</span><div><div class="t-title">ICT Strand</div><div class="t-place">Danao National High School</div></div></li>
-          <li><span class="t-date">2023—2024</span><div><div class="t-title">IT Support — Work Immersion</div><div class="t-place">Danao National High School</div><div class="t-desc">Assisted senior IT staff with support, system maintenance, and data management.</div></div></li>
-        </ul>
+        <ul class="timeline" id="educationList"></ul>
       </div>
     </div>
   </section>
 
   <section id="contact">
     <div class="section-head"><span class="section-num">05 —</span><h2>Contact</h2><span class="rule"></span></div>
-    <div class="contact-grid">
-      <div class="contact-cell"><label>Phone</label><span>09628669524</span></div>
-      <div class="contact-cell"><label>Email</label><a href="mailto:nethriondev@gmail.com">nethriondev@gmail.com</a></div>
-      <div class="contact-cell"><label>Location</label><span>Philippines</span></div>
-    </div>
+    <div class="contact-grid" id="contactsGrid"></div>
   </section>
 
   <footer>
-    <span>© 2025 ken-py-dev</span>
+    <span id="footerCopy"></span>
     <span></span>
   </footer>
 </div>
+<script>
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+async function loadJSON(p){
+  try{ const r=await fetch(p); if(!r.ok) throw 0; return await r.json(); }catch{ return null; }
+}
+(async()=>{
+  const [profile,projects,certs,contacts,socials,stack,education]=await Promise.all([
+    loadJSON('data/profile.json'),
+    loadJSON('data/projects.json'),
+    loadJSON('data/certifications.json'),
+    loadJSON('data/contacts.json'),
+    loadJSON('data/socials.json'),
+    loadJSON('data/stack.json'),
+    loadJSON('data/education.json')
+  ]);
+
+  if(profile){
+    document.title=`${profile.name} — ${profile.title}`;
+    const brand=document.getElementById('brand');
+    brand.innerHTML=`${esc(profile.brand||profile.name)} <span>— ${esc(profile.year||new Date().getFullYear())}</span>`;
+    document.getElementById('kicker').textContent=profile.title||'';
+    const img=document.getElementById('profileImg');
+    img.src=profile.image||''; img.alt=profile.name||'';
+    const h1=document.getElementById('profileName');
+    const parts=(profile.name||'').trim().split(' ');
+    if(parts.length>1){ const last=parts.pop(); h1.innerHTML=`${esc(parts.join(' '))} <em>${esc(last)}</em>`; } else h1.textContent=profile.name||'';
+    document.getElementById('profileBio').textContent=profile.bio||'';
+    document.getElementById('availability').innerHTML=`<span class="dot-live"></span> ${esc(profile.availability||'')}`;
+    window.__hireMessage=profile.hireMessage||'';
+    document.getElementById('ctaEmail').href=contacts&&contacts.email?`mailto:${contacts.email}`:'mailto:';
+    document.getElementById('footerCopy').textContent=`© ${profile.year||new Date().getFullYear()} ${profile.nickname||profile.brand||''}`;
+  }
+
+  if(socials){
+    const box=document.getElementById('socialsBox');
+    box.innerHTML=socials.map(s=>`<div class="meta-row"><span>${esc(s.label)}</span><a href="${esc(s.url)}" target="_blank"><strong>${esc(s.handle)} →</strong></a></div>`).join('');
+    const gh=socials.find(s=>s.label.toLowerCase()==='github');
+    if(gh) document.getElementById('ctaGithub').href=gh.url;
+  }
+
+  if(stack){
+    document.getElementById('stackGrid').innerHTML=stack.map(s=>`<div class="skill"><label>${esc(s.label)}</label><p>${esc(s.value)}</p></div>`).join('');
+  }
+
+  if(projects){
+    const total=String(projects.length).padStart(2,'0');
+    document.getElementById('projectsList').innerHTML=projects.map((p,i)=>{
+      const num=String(i+1).padStart(2,'0');
+      const title=p.url?`<a href="${esc(p.url)}" target="_blank">${esc(p.title)} ↗</a>`:esc(p.title);
+      const tags=(p.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('');
+      return `<div class="project"><div class="p-num">${num} / ${total}</div><div><h3>${title}</h3><p>${esc(p.description)}</p><div class="tags">${tags}</div></div><div class="p-arrow">↗</div></div>`;
+    }).join('');
+  }
+
+  if(certs){
+    document.getElementById('certsList').innerHTML=certs.map(c=>`<li><a href="${esc(c.url)}" target="_blank"><div><div class="name">${esc(c.name)} ↗</div><div class="org">${esc(c.org)}</div></div></a></li>`).join('');
+  }
+
+  if(education){
+    document.getElementById('educationList').innerHTML=education.map(e=>{
+      const logo=e.logo?`<img src="${esc(e.logo)}" alt="" style="width:20px;height:20px;object-fit:cover;background:#fff;border:1px solid var(--line-light);border-radius:50%;pointer-events:auto"> `:``;
+      const place=e.url?`<a href="${esc(e.url)}" target="_blank">${esc(e.place)} ↗</a>`:esc(e.place);
+      const desc=e.desc?`<div class="t-desc">${esc(e.desc)}</div>`:'';
+      return `<li><span class="t-date">${esc(e.date)}</span><div><div class="t-title">${esc(e.title)}</div><div class="t-place" style="display:flex;align-items:center;gap:6px">${logo}${place}</div>${desc}</div></li>`;
+    }).join('');
+  }
+
+  if(contacts){
+    const c=document.getElementById('contactsGrid');
+    const phone=contacts.phone?`<div class="contact-cell"><label>Phone</label><span>${esc(contacts.phone)}</span></div>`:'';
+    const email=contacts.email?`<div class="contact-cell"><label>Email</label><a href="mailto:${esc(contacts.email)}">${esc(contacts.email)}</a></div>`:'';
+    const loc=contacts.location?`<div class="contact-cell"><label>Location</label><span>${esc(contacts.location)}</span></div>`:'';
+    c.innerHTML=phone+email+loc;
+    const ce=document.getElementById('ctaEmail');
+    if(contacts.email) ce.href=`mailto:${contacts.email}`;
+  }
+})();
+</script>
 <script>
 (function(){
   const boot=document.getElementById('sg-boot');
   const meter=document.getElementById('sgMeter');
   const logEl=document.getElementById('sgLog');
   const fill=document.getElementById('sgFill');
-  
   document.body.style.overflow='hidden';
   const lines=[
     "> Initializing kernel.phi … <b>OK</b>",
@@ -509,9 +504,9 @@
 const btn=document.getElementById('unlockBtn');
 const msg=document.getElementById('unlockMsg');
 const wrap=document.querySelector('.unlock-wrap');
-const fullText="Hire me to unlock my full potential : ) — Warning: side effects may include 24/7 bug fixes, code that works on the first try (rare DLC), and me pretending Stack Overflow is my second home.";
 let typingTimer=null, idx=0, isOpen=false;
 function typeWrite(){
+  const fullText=window.__hireMessage||"Hire me to unlock my full potential : ) — Warning: side effects may include 24/7 bug fixes, code that works on the first try (rare DLC), and me pretending Stack Overflow is my second home.";
   msg.textContent="";
   msg.classList.add('open','typing');
   msg.classList.remove('done');
