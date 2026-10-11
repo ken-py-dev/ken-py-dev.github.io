@@ -1,0 +1,45 @@
+{
+  "_help": "AI Content Creator track. Self-contained: 'id', 'label', 'icon' (Font Awesome name) and 'order' control the tab button. 'badges' (OPTIONAL): logo buttons under the role; each is {logo, label, url} OR {icon (Font Awesome classes, e.g. 'fa-brands fa-github'), label, url}. 'icon' also auto-fills if the logo image fails. If 'url' is omitted the badge is not a link. Every project's 'media' is OPTIONAL and can be a single object or an array. Media types: 'image', 'gif' (both render as <img>), 'video' (autoplay loop muted), 'loom' (iframe embed). Empty/missing src or no 'media' = text-only project.",
+  "id": "ai",
+  "label": "AI Content Creator",
+  "icon": "fa-wand-magic-sparkles",
+  "order": 2,
+  "title": "AI Content Creator",
+  "availability": "Open to AI content & automation work",
+  "bio": "I turn AI tools into repeatable content workflows — prompt systems, automated pipelines, and AI-assisted visuals, voiceovers, and copy. I focus on output that reads human and ships on schedule.",
+  "badges": [
+    { "icon": "fa-brands fa-python", "logo": "https://cdn.simpleicons.org/python", "label": "Python", "url": "https://www.python.org" },
+    { "icon": "fa-solid fa-robot", "logo": "https://cdn.simpleicons.org/openai", "label": "OpenAI", "url": "https://openai.com" },
+    { "icon": "fa-brands fa-figma", "logo": "https://cdn.simpleicons.org/figma", "label": "Figma", "url": "https://www.figma.com" }
+  ],
+  "stack": [
+    { "label": "Prompting", "value": "Prompt engineering · LLM workflows · system prompts" },
+    { "label": "Content & Copy", "value": "AI-assisted writing · scripting · captioning" },
+    { "label": "Automation", "value": "API scripting · no-code flows · batch generation" },
+    { "label": "Visual", "value": "AI image generation · thumbnails · branding" },
+    { "label": "Audio & Voice", "value": "Text-to-speech · voiceover · subtitling" },
+    { "label": "Tools", "value": "ChatGPT · Claude · Midjourney · CapCut" }
+  ],
+  "projects": [
+    {
+      "title": "Prompt Engineering Library",
+      "description": "A reusable library of structured prompts and system templates for consistent, on-brand AI output across writing, images, and ideation.",
+      "tags": ["Prompting", "Library", "Templates"],
+      "url": "",
+      "media": { "type": "image", "src": "", "alt": "Prompt library preview" }
+    },
+    {
+      "title": "AI Content Pipeline",
+      "description": "Automated workflow that takes a topic and produces a draft, captions, and image prompts in one pass — cutting manual content time from hours to minutes.",
+      "tags": ["Automation", "Workflow", "LLM"],
+      "url": ""
+    },
+    {
+      "title": "AI Voiceover Reels",
+      "description": "Short-form videos built with AI voiceover, generated visuals, and styled captions. End-to-end: script, generate, edit, publish.",
+      "tags": ["Voiceover", "Reels", "AI"],
+      "url": "",
+      "media": { "type": "gif", "src": "", "alt": "AI voiceover reel preview" }
+    }
+  ]
+}

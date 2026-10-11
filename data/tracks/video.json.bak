@@ -1,0 +1,45 @@
+{
+  "_help": "Video Editor track. Self-contained: 'id', 'label', 'icon' (Font Awesome name) and 'order' control the tab button. 'badges' (OPTIONAL): logo buttons under the role; each is {logo, label, url} OR {icon (Font Awesome classes, e.g. 'fa-brands fa-github'), label, url}. 'icon' also auto-fills if the logo image fails. If 'url' is omitted the badge is not a link. Every project's 'media' is OPTIONAL and can be a single object or an array. Media types: 'image', 'gif' (both render as <img>), 'video' (autoplay loop muted), 'loom' (iframe embed). Empty/missing src or no 'media' = text-only project.",
+  "id": "video",
+  "label": "Video Editor",
+  "icon": "fa-film",
+  "order": 3,
+  "title": "Video Editor",
+  "availability": "Open to short-form & long-form editing",
+  "bio": "I edit short-form and long-form video with clean pacing, strong hooks, and tight audio. From reels and shorts to product walkthroughs — cut, captioned, color-graded, and ready to post.",
+  "badges": [
+    { "icon": "fa-solid fa-clapperboard", "logo": "https://cdn.simpleicons.org/adobepremierepro", "label": "Premiere Pro", "url": "https://www.adobe.com/products/premiere.html" },
+    { "icon": "fa-solid fa-video", "logo": "https://cdn.simpleicons.org/davinciresolve", "label": "DaVinci Resolve", "url": "https://www.blackmagicdesign.com/products/davinciresolve" },
+    { "icon": "fa-brands fa-youtube", "logo": "https://cdn.simpleicons.org/youtube", "label": "YouTube", "url": "https://www.youtube.com" }
+  ],
+  "stack": [
+    { "label": "Editing", "value": "Premiere Pro · CapCut · DaVinci Resolve" },
+    { "label": "Motion", "value": "After Effects · keyframes · transitions" },
+    { "label": "Audio", "value": "mixing · noise removal · syncing" },
+    { "label": "Formats", "value": "Reels · Shorts · TikTok · long-form" },
+    { "label": "Subtitles", "value": "auto-captions · styled captions" },
+    { "label": "Color", "value": "grading · LUTs · consistency" }
+  ],
+  "projects": [
+    {
+      "title": "Short-form Reel Edit",
+      "description": "Vertical 9:16 edit with a fast hook, beat-synced cuts, dynamic captions, and sound design tuned for retention.",
+      "tags": ["Reels", "9:16", "Captions"],
+      "url": "",
+      "media": { "type": "video", "src": "", "poster": "", "alt": "Short-form reel preview" }
+    },
+    {
+      "title": "Product Walkthrough",
+      "description": "Narrated screen-recorded walkthrough, trimmed and paced, with zoom highlights and captions — ideal for demos and onboarding.",
+      "tags": ["Walkthrough", "Screen Rec", "Loom"],
+      "url": "",
+      "media": { "type": "loom", "src": "", "alt": "Product walkthrough embed" }
+    },
+    {
+      "title": "Highlight Montage",
+      "description": "Long-form to short highlight cut: selects, music sync, color pass, and export presets for every platform.",
+      "tags": ["Montage", "Grading", "Long-form"],
+      "url": ""
+    }
+  ]
+}

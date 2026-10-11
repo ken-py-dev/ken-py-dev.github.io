@@ -1,0 +1,37 @@
+{
+  "_help": "Game Developer track. Self-contained: 'id', 'label', 'icon' (Font Awesome name) and 'order' control the tab button. 'badges' (OPTIONAL): logo buttons under the role; each is {logo, label, url} OR {icon (Font Awesome classes, e.g. 'fa-brands fa-github'), label, url}. 'icon' also auto-fills if the logo image fails. If 'url' is omitted the badge is not a link. Every project's 'media' is OPTIONAL and can be a single object or an array. Media types: 'image', 'gif' (both render as <img>), 'video' (autoplay loop muted), 'loom' (iframe embed). Empty/missing src or no 'media' = text-only project.",
+  "id": "gamedev",
+  "label": "Game Developer",
+  "icon": "fa-gamepad",
+  "order": 4,
+  "title": "Game Developer",
+  "availability": "Learning Godot — open to game jams & collabs",
+  "bio": "Building games in Godot (GDScript), with Blender for assets, Tripo AI for mesh generation, and Mesh2Motion for animations. Focused on clean, playable mechanics and learning by shipping small projects.",
+  "badges": [
+    { "icon": "fa-solid fa-gamepad", "logo": "https://cdn.simpleicons.org/godot", "label": "Godot", "url": "https://godotengine.org" },
+    { "icon": "fa-solid fa-cubes", "logo": "https://cdn.simpleicons.org/blender", "label": "Blender", "url": "https://www.blender.org" },
+    { "icon": "fa-solid fa-robot", "label": "Tripo AI", "url": "https://www.tripo3d.ai" },
+    { "icon": "fa-solid fa-person-running", "label": "Mesh2Motion" }
+  ],
+  "stack": [
+    { "label": "Engine", "value": "Godot 4 · GDScript" },
+    { "label": "2D / 3D", "value": "Scenes · tiles · characters · basic shaders" },
+    { "label": "Art & Assets", "value": "Blender modeling · low-poly · import to Godot" },
+    { "label": "AI Tools", "value": "Tripo AI mesh generation · Mesh2Motion animation" },
+    { "label": "Tools", "value": "Git · versioned projects · rapid prototyping" }
+  ],
+  "projects": [
+    {
+      "title": "Zombie Game",
+      "description": "A Godot game about surviving zombies — built with GDScript, focused on tight movement and simple, readable game logic.",
+      "tags": ["Godot", "GDScript"],
+      "url": ""
+    },
+    {
+      "title": "Grow a Pet Game",
+      "description": "A casual Godot game where you raise and grow a pet over time — feeding, care, and growth mechanics built in GDScript.",
+      "tags": ["Godot", "GDScript", "Casual"],
+      "url": ""
+    }
+  ]
+}

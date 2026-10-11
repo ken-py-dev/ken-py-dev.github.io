@@ -1,0 +1,9 @@
+{
+  "_help": "FALLBACK only. On GitHub Pages the page auto-discovers every *.json inside data/tracks/ (so just adding a file adds a role — no code). This file is only used when that discovery fails (local/offline). Each role's id/label/icon/order now live inside its own file.",
+  "tracks": [
+    { "id": "webdev", "label": "Web Developer", "icon": "fa-code", "file": "data/tracks/webdev.json" },
+    { "id": "ai", "label": "AI Content Creator", "icon": "fa-wand-magic-sparkles", "file": "data/tracks/ai.json" },
+    { "id": "video", "label": "Video Editor", "icon": "fa-film", "file": "data/tracks/video.json" },
+    { "id": "gamedev", "label": "Game Developer", "icon": "fa-gamepad", "file": "data/tracks/gamedev.json" }
+  ]
+}
