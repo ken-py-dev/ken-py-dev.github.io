@@ -1,10 +1,10 @@
 {
-  "_help": "Game Developer track. Self-contained: 'id', 'label', 'icon' (Font Awesome name) and 'order' control the tab button. 'badges' (OPTIONAL): logo buttons under the role; each is {logo, label, url} OR {icon (Font Awesome classes, e.g. 'fa-brands fa-github'), label, url}. 'icon' also auto-fills if the logo image fails. If 'url' is omitted the badge is not a link. Every project's 'media' is OPTIONAL and can be a single object or an array. Media types: 'image', 'gif' (both render as <img>), 'video' (autoplay loop muted), 'loom' (iframe embed). Empty/missing src or no 'media' = text-only project.",
+  "_help": "Solo Game Developer track. Self-contained: 'id', 'label', 'icon' (Font Awesome name) and 'order' control the tab button. 'badges' (OPTIONAL): logo buttons under the role; each is {logo, label, url} OR {icon (Font Awesome classes, e.g. 'fa-brands fa-github'), label, url}. 'icon' also auto-fills if the logo image fails. If 'url' is omitted the badge is not a link. Every project's 'media' is OPTIONAL and can be a single object or an array. Media types: 'image', 'gif' (both render as <img>), 'video' (autoplay loop muted), 'loom' (iframe embed). Empty/missing src or no 'media' = text-only project.",
   "id": "gamedev",
   "label": "Game Developer",
   "icon": "fa-gamepad",
   "order": 4,
-  "title": "Game Developer",
+  "title": "Solo Game Developer",
   "availability": "Learning Godot — open to game jams & collabs",
   "bio": "Building games in Godot (GDScript), with Blender for assets, Tripo AI for mesh generation, and Mesh2Motion for animations. Focused on clean, playable mechanics and learning by shipping small projects.",
   "badges": [
@@ -22,11 +22,18 @@
   ],
   "projects": [
     {
-      "title": "Zombie Game",
+      "title": "Zombie Survival",
       "description": "A Godot game about surviving zombies — built with GDScript, focused on tight movement and simple, readable game logic. the game is not finished yet",
       "tags": ["Godot", "GDScript"],
       "url": "",
       "media": { "type": "video", "src": "https://cdn.videy.co/JxH9gZv91.mp4", "poster": "", "alt": "Neth Orion demo" }
+    },
+    {
+      "title": "2D MOBA",
+      "description": "A Godot game about 5V5 MOBA — built with GDScript. the game is discontinued : (",
+      "tags": ["Godot", "GDScript"],
+      "url": "",
+      "media": { "type": "video", "src": "https://cdn.videy.co/LAqZevuG1.mp4", "poster": "", "alt": "Neth Orion demo" }
     }
   ]
 }
