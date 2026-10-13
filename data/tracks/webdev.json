@@ -24,36 +24,11 @@
   ],
   "projects": [
     {
-      "title": "Web Scraper API",
-      "description": "REST API that scrapes and normalizes data from multiple sources and returns clean JSON. Implemented in both Node.js and Python (Flask), with rate-limiting and error handling.",
-      "tags": ["Node.js", "Python", "REST"],
+      "title": "Product Catalog System",
+      "description": "A lightweight, production-ready full-stack product catalog with a public storefront and a protected admin dashboard.",
+      "tags": ["Node.js", "Vue.js", "Html", "Prisma", "Express"],
       "url": "",
-      "media": { "type": "image", "src": "", "alt": "Web Scraper API preview" }
-    },
-    {
-      "title": "Proxy Embed",
-      "description": "Custom reverse proxy to handle and reroute web traffic securely. Handles headers, CORS, and rewrite rules without leaking origin.",
-      "tags": ["Node.js", "Express", "Networking"],
-      "url": "https://github.com/ken-py-dev/proxy-embed"
-    },
-    {
-      "title": "Telegram & Facebook Chatbots",
-      "description": "Conversational bots using platform APIs for real-time commands, notifications, and task handling. Built in Node.js and Python, deployed with webhooks.",
-      "tags": ["Node.js", "Python", "Automation"],
-      "url": ""
-    },
-    {
-      "title": "Audio Converter CLI",
-      "description": "Terminal tool for batch-converting and compressing audio files. Built in Python, focused on speed and small output size with simple flags.",
-      "tags": ["Python", "CLI", "Batch"],
-      "url": "https://github.com/ken-py-dev/audio_converter_cli"
-    },
-    {
-      "title": "Neth Orion DDOS",
-      "description": "Network stress-testing tool built for cybersecurity research. It simulates high-concurrency traffic in an isolated lab environment to analyze server resilience and evaluate the effectiveness of rate-limiting and DDoS mitigation defenses.",
-      "tags": ["Node.js", "CLI", "UDP", "TCP", "Flood"],
-      "url": "",
-      "media": { "type": "video", "src": "", "poster": "", "alt": "Neth Orion demo" }
+      "media": { "type": "video", "src": "https://cdn.videy.co/aWGL2Pe21.mp4", "poster": "", "alt": "Product Catalog System" }
     }
   ]
 }

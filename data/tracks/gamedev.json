@@ -26,14 +26,14 @@
       "description": "A Godot game about surviving zombies — built with GDScript, focused on tight movement and simple, readable game logic. the game is not finished yet",
       "tags": ["Godot", "GDScript"],
       "url": "",
-      "media": { "type": "video", "src": "https://cdn.videy.co/JxH9gZv91.mp4", "poster": "", "alt": "Neth Orion demo" }
+      "media": { "type": "video", "src": "https://cdn.videy.co/JxH9gZv91.mp4", "poster": "", "alt": "Zombie Survival" }
     },
     {
       "title": "2D MOBA",
       "description": "A Godot game about 5V5 MOBA — built with GDScript. the game is discontinued : (",
       "tags": ["Godot", "GDScript"],
       "url": "",
-      "media": { "type": "video", "src": "https://cdn.videy.co/LAqZevuG1.mp4", "poster": "", "alt": "Neth Orion demo" }
+      "media": { "type": "video", "src": "https://cdn.videy.co/LAqZevuG1.mp4", "poster": "", "alt": "2D MOBA" }
     }
   ]
 }
