@@ -24,11 +24,11 @@
   ],
   "projects": [
     {
-      "title": "Product Catalog System",
+      "title": "Kenpy Shop",
       "description": "A lightweight, production-ready full-stack product catalog with a public storefront and a protected admin dashboard.",
       "tags": ["Node.js", "Vue.js", "Html", "Prisma", "Express"],
-      "url": "",
-      "media": { "type": "video", "src": "https://cdn.videy.co/aWGL2Pe21.mp4", "poster": "", "alt": "Product Catalog System" }
+      "url": "https://kenpyshop.vercel.app/",
+      "media": { "type": "image", "src": "https://i.imgur.com/OHwzNwG.jpeg", "poster": "", "alt": "Kenpy Shop" }
     }
   ]
 }
