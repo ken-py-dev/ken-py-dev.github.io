@@ -40,17 +40,46 @@ const list=await Promise.all(idx.tracks.map(async e=>{
   }
   return [];
 }
+const sk=(w,h,cls)=>`<span class="sk ${cls||'sk-line'}" style="width:${w};height:${h}"></span>`;
+const skSet=(id,h)=>{ const el=document.getElementById(id); if(el) el.innerHTML=h; };
+function paintSkeletons(){
+  skSet('brand', sk('84px','11px'));
+  skSet('footerCopy', sk('110px','11px'));
+  skSet('profileName', sk('70%','30px'));
+  skSet('profileRole', sk('130px','12px'));
+  skSet('profileBio', sk('100%','16px','sk-line sk-block')+sk('82%','16px','sk-line sk-block')+'<span class="sk sk-block" style="width:64%;height:16px;margin-top:8px"></span>');
+  skSet('availability', sk('150px','11px'));
+  skSet('socialsBox', Array.from({length:3}).map(()=>`<div class="meta-row"><span class="sk" style="width:56px;height:11px"></span><span class="sk" style="width:110px;height:11px"></span></div>`).join(''));
+  skSet('trackTabs', Array.from({length:3}).map(()=>sk('104px','34px','sk')).join(''));
+  skSet('stackGrid', Array.from({length:6}).map(()=>`<div class="skill"><span class="sk sk-block" style="width:64px;height:10px"></span>${sk('92%','13px','sk-line sk-block')}</div>`).join(''));
+  skSet('projectsList', Array.from({length:3}).map(()=>`<div class="project"><div class="p-num"><span class="sk" style="width:38px;height:11px"></span></div><div><span class="sk" style="width:40%;height:15px"></span>${sk('90%','13px','sk-line sk-block')}${sk('72%','13px','sk-line sk-block')}</div></div>`).join(''));
+  skSet('certsList', Array.from({length:4}).map(()=>`<li><span class="sk" style="width:70px;height:12px"></span><span class="sk" style="width:44%;height:12px"></span></li>`).join(''));
+  skSet('educationList', Array.from({length:3}).map(()=>`<li><span class="sk" style="width:56px;height:11px"></span><div>${sk('60%','13px','sk-line sk-block')}${sk('40%','11px','sk-line sk-block')}</div></li>`).join(''));
+  skSet('contactsGrid', Array.from({length:3}).map(()=>`<div class="contact-cell"><span class="sk sk-block" style="width:52px;height:10px"></span><span class="sk sk-block" style="width:80%;height:13px;margin-top:9px"></span></div>`).join(''));
+  const sq=document.querySelector('.profile-square');
+  if(sq) sq.classList.add('sk');
+}
+// Runs synchronously before first paint so the page never looks empty.
+paintSkeletons();
+
+function whenVisible(el,fn){
+  if(!el) return fn();
+  if(!('IntersectionObserver' in window)) return fn();
+  const io=new IntersectionObserver((entries,obs)=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ obs.disconnect(); fn(); } });
+  },{rootMargin:'250px 0px'});
+  io.observe(el);
+}
+function reveal(el){ if(el){ el.classList.remove('fade-in'); void el.offsetWidth; el.classList.add('fade-in'); } }
+
 (async()=>{
-  const [profile,tracks,certs,contacts,socials,education,projectsFallback,stackFallback]=await Promise.all([
-    loadJSON('data/profile.json'),
-    discoverTracks(),
-    loadJSON('data/certifications.json'),
-    loadJSON('data/contacts.json'),
-    loadJSON('data/socials.json'),
-    loadJSON('data/education.json'),
-    loadJSON('data/projects.json'),
-    loadJSON('data/stack.json')
-  ]);
+  const pProfile=loadJSON('data/profile.json');
+  const pTracks=discoverTracks();
+  const pCerts=loadJSON('data/certifications.json');
+  const pContacts=loadJSON('data/contacts.json');
+  const pSocials=loadJSON('data/socials.json');
+  const pEducation=loadJSON('data/education.json');
+  const pStackFallback=loadJSON('data/stack.json');
 
   const renderMedia=(m)=>{
     if(!m) return '';
@@ -84,6 +113,68 @@ const list=await Promise.all(idx.tracks.map(async e=>{
     }).join('');
   };
 
+  // Hero is painted as soon as the small profile/contacts/socials data arrives,
+  // without waiting on the slower track discovery.
+  const [profile,contacts,socials]=await Promise.all([pProfile,pContacts,pSocials]);
+
+  if(profile){
+    document.title=`${profile.name} — ${profile.title}`;
+    const brand=document.getElementById('brand');
+    brand.textContent='PORTFOLIO';
+    const img=document.getElementById('profileImg');
+    img.src=profile.image||''; img.alt=profile.name||'';
+    const h1=document.getElementById('profileName');
+    const parts=(profile.name||'').trim().split(' ');
+    if(parts.length>1){ const last=parts.pop(); h1.innerHTML=`${esc(parts.join(' '))} <em>${esc(last)}</em>`; } else h1.textContent=profile.name||'';
+    const sq=document.querySelector('.profile-square');
+    if(sq) sq.classList.remove('sk');
+    document.getElementById('profileBio').textContent=profile.bio||'';
+    document.getElementById('availability').innerHTML=`<span class="dot-live"></span> ${esc(profile.availability||'')}`;
+    document.getElementById('ctaEmail').href=contacts&&contacts.email?`mailto:${contacts.email}`:'mailto:';
+    document.getElementById('footerCopy').textContent='© kenpydev 2025';
+    reveal(document.querySelector('.hero-left'));
+  }
+
+  if(socials){
+    const box=document.getElementById('socialsBox');
+    box.innerHTML=socials.map(s=>`<div class="meta-row"><span>${esc(s.label)}</span><a href="${esc(s.url)}" target="_blank"><strong>${esc(s.handle)} →</strong></a></div>`).join('');
+    const gh=socials.find(s=>s.label.toLowerCase()==='github');
+    if(gh) document.getElementById('ctaGithub').href=gh.url;
+    reveal(box);
+  }
+
+  // Below-the-fold sections are only rendered once scrolled near, so the first
+  // paint stays light and is never blocked by the slower track discovery.
+  whenVisible(document.getElementById('contactsGrid'),()=>{
+    const c=document.getElementById('contactsGrid');
+    const phone=contacts&&contacts.phone?`<div class="contact-cell"><label>Phone</label><span>${esc(contacts.phone)}</span></div>`:'';
+    const email=contacts&&contacts.email?`<div class="contact-cell"><label>Email</label><a href="mailto:${esc(contacts.email)}">${esc(contacts.email)}</a></div>`:'';
+    const loc=contacts&&contacts.location?`<div class="contact-cell"><label>Location</label><span>${esc(contacts.location)}</span></div>`:'';
+    c.innerHTML=phone+email+loc;
+    reveal(c);
+  });
+
+  whenVisible(document.getElementById('certsList'),async()=>{
+    const certs=await pCerts;
+    const el=document.getElementById('certsList');
+    el.innerHTML=(certs||[]).map(c=>`<li><a href="${esc(c.url)}" target="_blank"><div><div class="name">${esc(c.name)} ↗</div><div class="org">${esc(c.org)}</div></div></a></li>`).join('');
+    reveal(el);
+  });
+
+  whenVisible(document.getElementById('educationList'),async()=>{
+    const education=await pEducation;
+    const el=document.getElementById('educationList');
+    el.innerHTML=(education||[]).map(e=>{
+      const logo=e.logo?`<img src="${esc(e.logo)}" alt="" style="width:20px;height:20px;object-fit:cover;background:#fff;border:1px solid var(--line-light);border-radius:50%;pointer-events:auto"> `:``;
+      const place=e.url?`<a href="${esc(e.url)}" target="_blank">${esc(e.place)} ↗</a>`:esc(e.place);
+      const desc=e.desc?`<div class="t-desc">${esc(e.desc)}</div>`:'';
+      return `<li><span class="t-date">${esc(e.date)}</span><div><div class="t-title">${esc(e.title)}</div><div class="t-place" style="display:flex;align-items:center;gap:6px">${logo}${place}</div>${desc}</div></li>`;
+    }).join('');
+    reveal(el);
+  });
+
+  const [tracks,stackFallback]=await Promise.all([pTracks,pStackFallback]);
+
   const trackIndex=(Array.isArray(tracks)&&tracks.length)
     ? tracks.slice()
     : [{
@@ -100,28 +191,13 @@ const list=await Promise.all(idx.tracks.map(async e=>{
   const trackData={};
   trackIndex.forEach(e=>{ trackData[e.id]=e; });
 
-  if(profile){
-    document.title=`${profile.name} — ${profile.title}`;
-    const brand=document.getElementById('brand');
-    brand.textContent='PORTFOLIO';
-    const img=document.getElementById('profileImg');
-    img.src=profile.image||''; img.alt=profile.name||'';
-    const h1=document.getElementById('profileName');
-    const parts=(profile.name||'').trim().split(' ');
-    if(parts.length>1){ const last=parts.pop(); h1.innerHTML=`${esc(parts.join(' '))} <em>${esc(last)}</em>`; } else h1.textContent=profile.name||'';
-    document.getElementById('profileBio').textContent=profile.bio||'';
-    document.getElementById('availability').innerHTML=`<span class="dot-live"></span> ${esc(profile.availability||'')}`;
-    document.getElementById('ctaEmail').href=contacts&&contacts.email?`mailto:${contacts.email}`:'mailto:';
-    document.getElementById('footerCopy').textContent='© kenpydev 2025';
-  }
-
   const tabsEl=document.getElementById('trackTabs');
   function selectTrack(id,animate){
     const entry=trackIndex.find(x=>x.id===id)||trackIndex[0];
     if(!entry) return;
     const t=trackData[entry.id]||entry;
     const stack=(t.stack&&t.stack.length)?t.stack:(entry.stack||stackFallback||[]);
-    const projects=(t.projects&&t.projects.length)?t.projects:(entry.projects||projectsFallback||[]);
+    const projects=(t.projects&&t.projects.length)?t.projects:(entry.projects||[]);
     document.title=`${(profile&&profile.name)||'Portfolio'} — ${t.title||t.label||entry.label}`;
     const roleEl=document.getElementById('profileRole');
     if(roleEl) roleEl.textContent=t.title||t.label||entry.label||'';
@@ -162,36 +238,9 @@ const list=await Promise.all(idx.tracks.map(async e=>{
     });
     const hash=location.hash.replace('#','');
     selectTrack(trackIndex.some(t=>t.id===hash)?hash:trackIndex[0].id, false);
-  }
-
-  if(socials){
-    const box=document.getElementById('socialsBox');
-    box.innerHTML=socials.map(s=>`<div class="meta-row"><span>${esc(s.label)}</span><a href="${esc(s.url)}" target="_blank"><strong>${esc(s.handle)} →</strong></a></div>`).join('');
-    const gh=socials.find(s=>s.label.toLowerCase()==='github');
-    if(gh) document.getElementById('ctaGithub').href=gh.url;
-  }
-
-  if(certs){
-    document.getElementById('certsList').innerHTML=certs.map(c=>`<li><a href="${esc(c.url)}" target="_blank"><div><div class="name">${esc(c.name)} ↗</div><div class="org">${esc(c.org)}</div></div></a></li>`).join('');
-  }
-
-  if(education){
-    document.getElementById('educationList').innerHTML=education.map(e=>{
-      const logo=e.logo?`<img src="${esc(e.logo)}" alt="" style="width:20px;height:20px;object-fit:cover;background:#fff;border:1px solid var(--line-light);border-radius:50%;pointer-events:auto"> `:``;
-      const place=e.url?`<a href="${esc(e.url)}" target="_blank">${esc(e.place)} ↗</a>`:esc(e.place);
-      const desc=e.desc?`<div class="t-desc">${esc(e.desc)}</div>`:'';
-      return `<li><span class="t-date">${esc(e.date)}</span><div><div class="t-title">${esc(e.title)}</div><div class="t-place" style="display:flex;align-items:center;gap:6px">${logo}${place}</div>${desc}</div></li>`;
-    }).join('');
-  }
-
-  if(contacts){
-    const c=document.getElementById('contactsGrid');
-    const phone=contacts.phone?`<div class="contact-cell"><label>Phone</label><span>${esc(contacts.phone)}</span></div>`:'';
-    const email=contacts.email?`<div class="contact-cell"><label>Email</label><a href="mailto:${esc(contacts.email)}">${esc(contacts.email)}</a></div>`:'';
-    const loc=contacts.location?`<div class="contact-cell"><label>Location</label><span>${esc(contacts.location)}</span></div>`:'';
-    c.innerHTML=phone+email+loc;
-    const ce=document.getElementById('ctaEmail');
-    if(contacts.email) ce.href=`mailto:${contacts.email}`;
+    reveal(tabsEl.querySelector('.track-tab.active'));
+    reveal(document.getElementById('stackGrid'));
+    reveal(document.getElementById('projectsList'));
   }
 })();
 
