@@ -315,14 +315,17 @@ function initPointerFX(){
 function initScrollUI(){
   const top=document.getElementById('toTop');
   const progress=document.getElementById('progress');
-  const onScroll=()=>{
+  let ticking=false;
+  const apply=()=>{
+    ticking=false;
     const h=document.documentElement;
     const max=h.scrollHeight-h.clientHeight;
     if(progress) progress.style.transform=`scaleX(${max>0?h.scrollTop/max:0})`;
     if(top) top.classList.toggle('hidden',window.scrollY<300);
   };
+  const onScroll=()=>{ if(!ticking){ ticking=true; requestAnimationFrame(apply); } };
   window.addEventListener('scroll',onScroll,{passive:true});
-  onScroll();
+  apply();
   if(top) top.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 }
 
