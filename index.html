@@ -3,14 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Kenneth C. Panio — Web & Game Developer building fast, usable web tools and practical automation.">
+<meta name="theme-color" content="#f2f1ec">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <title>Kenneth C. Panio</title>
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body id="top">
+<div class="bg" aria-hidden="true">
+  <span class="blob b1"></span>
+  <span class="blob b2"></span>
+  <span class="blob b3"></span>
+</div>
+<div id="progress" aria-hidden="true"></div>
+
 <div class="wrap">
   <nav class="top">
-    <div class="brand" id="brand"></div>
+    <a class="brand" id="brand" href="#top" aria-label="Back to top"></a>
+    <div class="nav-links">
+      <a href="#stack"><i class="fa-solid fa-layer-group"></i><span>Stack</span></a>
+      <a href="#projects"><i class="fa-solid fa-diagram-project"></i><span>Work</span></a>
+      <a href="#contact"><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
+    </div>
   </nav>
 
   <header class="hero">
@@ -27,11 +44,6 @@
       <p class="lead" id="profileBio"></p>
     </div>
     <div class="hero-right">
-      <div class="nav-links">
-        <a href="#projects"><i class="fa-solid fa-diagram-project"></i> Projects</a>
-        <a href="#stack"><i class="fa-solid fa-layer-group"></i> Stack</a>
-        <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
-      </div>
       <div class="meta-box" id="socialsBox"></div>
       <div class="cta-row">
         <a class="btn btn-primary" id="ctaEmail" href="#">Email me</a>
@@ -41,7 +53,7 @@
     </div>
   </header>
 
-  <div class="action-bar">
+  <div class="action-bar" data-reveal>
     <div class="tracks">
       <span class="tracks-label">My role →</span>
       <div class="track-tabs" id="trackTabs" role="tablist" aria-label="Select a role"></div>
@@ -49,30 +61,30 @@
   </div>
 
   <section id="stack">
-    <div class="section-head"><span class="section-num">01 —</span><h2>Stack</h2><span class="rule"></span></div>
+    <div class="section-head" data-reveal><span class="section-num">01 —</span><h2>Stack</h2><span class="rule"></span></div>
     <div class="skills" id="stackGrid"></div>
   </section>
 
   <section id="projects">
-    <div class="section-head"><span class="section-num">02 —</span><h2>Selected work</h2><span class="rule"></span></div>
+    <div class="section-head" data-reveal><span class="section-num">02 —</span><h2>Selected work</h2><span class="rule"></span></div>
     <div class="projects" id="projectsList"></div>
   </section>
 
   <section>
     <div class="two-col">
-      <div>
+      <div class="panel" data-reveal>
         <div class="section-head"><span class="section-num">03 —</span><h2>Certifications</h2><span class="rule"></span></div>
         <ul class="list-plain" id="certsList"></ul>
       </div>
-      <div>
-        <div class="section-head"><span class="section-num">04 —</span><h2>Education & Experience</h2><span class="rule"></span></div>
+      <div class="panel" data-reveal>
+        <div class="section-head"><span class="section-num">04 —</span><h2>Education &amp; Experience</h2><span class="rule"></span></div>
         <ul class="timeline" id="educationList"></ul>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <div class="section-head"><span class="section-num">05 —</span><h2>Contact</h2><span class="rule"></span></div>
+    <div class="section-head" data-reveal><span class="section-num">05 —</span><h2>Contact</h2><span class="rule"></span></div>
     <div class="contact-grid" id="contactsGrid"></div>
   </section>
 
