@@ -40,7 +40,7 @@
     {
       "title": "Prod Catalog",
       "description": "A lightweight, production-ready full-stack product catalog with a public storefront and a protected admin dashboard.",
-      "tags": ["Node.js", "Vue.js", "Html", "Prisma", "Express", "MySQL],
+      "tags": ["Node.js", "Vue.js", "Html", "Prisma", "Express", "MySQL"],
       "url": "https://kenpyshop.vercel.app/",
       "media": { "type": "image", "src": "https://i.imgur.com/OHwzNwG.jpeg", "poster": "", "alt": "Kenpy Shop" }
     }
