@@ -28,7 +28,7 @@
       "description": "A minimal, self-contained voting system. Create polls, share them, and watch the results update in real time.",
       "tags": ["Node.js", "Vue.js", "Html", "Prisma", "Express", "MySQL"],
       "url": "https://github.com/ken-py-dev/voteflow",
-      "media": { "type": "image", "src": "https://i.imgur.com/2NJDTe7.png", "poster": "", "alt": "Shawn Bites" }
+      "media": { "type": "image", "src": "https://i.imgur.com/2NJDTe7.png", "poster": "", "alt": "Vote Flow" }
     },
     {
       "title": "ShawnBites",
@@ -43,6 +43,14 @@
       "tags": ["Node.js", "Vue.js", "Html", "Prisma", "Express", "MySQL"],
       "url": "https://kenpyshop.vercel.app/",
       "media": { "type": "image", "src": "https://i.imgur.com/OHwzNwG.jpeg", "poster": "", "alt": "Kenpy Shop" }
+    },
+    {
+      "title": "Anikoto Scraper",
+      "description": "Anikoto Scraper is an open-source, educational web data extraction tool built to demonstrate advanced web scraping techniques, asynchronous data pipelines, and HTML parsing. This project was developed strictly as a technical case study to explore data aggregation and is not intended for commercial use or distribution of copyrighted material. it is now rebranded as anisekai
+",
+      "tags": ["Node.js", "Express", "Cheerio"],
+      "url": "https://anisekai-amber.vercel.app/",
+      "media": { "type": "image", "src": "https://i.imgur.com/dUJpbZc.png", "poster": "", "alt": "Anikoto" }
     }
   ]
 }
