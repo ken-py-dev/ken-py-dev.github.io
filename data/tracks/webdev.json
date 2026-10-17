@@ -24,9 +24,23 @@
   ],
   "projects": [
     {
-      "title": "Kenpy Shop",
+      "title": "VoteFlow",
+      "description": "A minimal, self-contained voting system. Create polls, share them, and watch the results update in real time.",
+      "tags": ["Node.js", "Vue.js", "Html", "Prisma", "Express", "MySQL"],
+      "url": "https://github.com/ken-py-dev/voteflow",
+      "media": { "type": "image", "src": "https://i.imgur.com/2NJDTe7.png", "poster": "", "alt": "Shawn Bites" }
+    },
+    {
+      "title": "ShawnBites",
+      "description": "A simple cash register and stock tracker for small shops.",
+      "tags": ["Python", "Flask", "Vue.js", "Html", "Prisma", "Express", "MySQL"],
+      "url": "https://shawnbites.vercel.app/",
+      "media": { "type": "image", "src": "https://i.imgur.com/fSQ3BIf.png", "poster": "", "alt": "Shawn Bites" }
+    },
+    {
+      "title": "Prod Catalog",
       "description": "A lightweight, production-ready full-stack product catalog with a public storefront and a protected admin dashboard.",
-      "tags": ["Node.js", "Vue.js", "Html", "Prisma", "Express"],
+      "tags": ["Node.js", "Vue.js", "Html", "Prisma", "Express", "MySQL],
       "url": "https://kenpyshop.vercel.app/",
       "media": { "type": "image", "src": "https://i.imgur.com/OHwzNwG.jpeg", "poster": "", "alt": "Kenpy Shop" }
     }
