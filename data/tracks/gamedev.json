@@ -17,7 +17,7 @@
     { "label": "Engine", "value": "Godot 4 · GDScript" },
     { "label": "2D / 3D", "value": "Scenes · tiles · characters · basic shaders" },
     { "label": "Art & Assets", "value": "Blender modeling · low-poly · import to Godot" },
-    { "label": "AI Tools", "value": "Tripo AI mesh generation · Mesh2Motion animation" },
+    { "label": "AI Tools", "value": "Tripo AI mesh generation · Mesh2Motion animation · Claude · ChatGPT · OpenCodex · Deepseek" },
     { "label": "Tools", "value": "Git · versioned projects · rapid prototyping" }
   ],
   "projects": [
