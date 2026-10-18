@@ -15,14 +15,21 @@
     { "icon": "fa-brands fa-github", "label": "GitHub", "url": "https://github.com/ken-py-dev" }
   ],
   "stack": [
-    { "label": "Languages", "value": "C · C++ · Python · JavaScript" },
-    { "label": "Frontend", "value": "HTML5 · CSS3 · Tailwind CSS" },
+    { "label": "Languages", "value": "C · C++ · Python · JavaScript", "Dart", "Rust" },
+    { "label": "Frontend", "value": "HTML5 · CSS3 · Tailwind CSS", "Svelte" },
     { "label": "Backend", "value": "Node.js / Express · Flask · REST APIs · Jinja" },
-    { "label": "Database", "value": "MongoDB · PostgreSQL · SQLAlchemy" },
+    { "label": "Database", "value": "MongoDB · PostgreSQL · SQLAlchemy", "Prisma" },
     { "label": "AI & Automation", "value": "API integration · scripting · workflow automation" },
     { "label": "Tools", "value": "Git · CLI · rapid prototyping" }
   ],
   "projects": [
+    {
+      "title": "College Fines System",
+      "description": "A minimal, self-contained voting system. Create polls, share them, and watch the results update in real time.",
+      "tags": ["Node.js", "Svelte", "HTML", "Prisma", "Express", "MySQL"],
+      "url": "https://college-fines-system.vercel.app/",
+      "media": { "type": "image", "src": "https://i.imgur.com/kR4z4Vn.png", "poster": "", "alt": "College Fines System" }
+    },
     {
       "title": "VoteFlow",
       "description": "A minimal, self-contained voting system. Create polls, share them, and watch the results update in real time.",
