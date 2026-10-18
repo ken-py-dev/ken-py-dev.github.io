@@ -6,7 +6,7 @@
   "order": 1,
   "title": "Web Developer",
   "availability": "Available for freelance & collaborations",
-  "bio": "I build fast, usable web tools — scrapers, bots, proxies, CLI utilities. Focused on modern UIs and practical automation. I use AI where it helps with prototyping and scripting, but ship clean, maintainable code.",
+  "bio": "BSIS student who knows the programming fundamentals and is still learning — but already building. I make small, useful web stuff: scrapers, bots, proxies, CLI tools. I like clean UIs and automation that actually saves time. I use AI to prototype faster, but I keep the code readable and my own. Currently looking for opportunities to build web services and learn from real projects.",
   "badges": [
     { "icon": "fa-brands fa-html5", "logo": "https://cdn.simpleicons.org/html5", "label": "HTML5", "url": "https://developer.mozilla.org/en-US/docs/Web/HTML" },
     { "icon": "fa-brands fa-css3-alt", "logo": "https://cdn.simpleicons.org/css3", "label": "CSS3", "url": "https://developer.mozilla.org/en-US/docs/Web/CSS" },
