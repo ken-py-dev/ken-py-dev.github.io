@@ -4,5 +4,5 @@
   { "label": "Backend", "value": "Node.js / Express · Flask · REST APIs · Jinja" },
   { "label": "Database", "value": "MongoDB · PostgreSQL · SQLAlchemy" },
   { "label": "AI & Automation", "value": "API integration · scripting · workflow automation" },
-  { "label": "Tools", "value": "Git · CLI · rapid prototyping" }
+  { "label": "Tools", "value": "Git · CLI · rapid prototyping · Claude Code · Opencode · Codex · ChatGPT" }
 ]
