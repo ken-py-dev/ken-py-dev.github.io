@@ -25,7 +25,7 @@
   "projects": [
     {
       "title": "College Fines System",
-      "description": "A minimal, self-contained voting system. Create polls, share them, and watch the results update in real time.",
+      "description": "A college-wide fines manager multi-purpose — absence, tardiness, misconduct, property damage, uniform/ID violations, etc.",
       "tags": ["Node.js", "Svelte", "HTML", "Prisma", "Express", "MySQL"],
       "url": "https://college-fines-system.vercel.app/",
       "media": { "type": "image", "src": "https://i.imgur.com/kR4z4Vn.png", "poster": "", "alt": "College Fines System" }
