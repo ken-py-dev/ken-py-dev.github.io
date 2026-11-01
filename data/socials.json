@@ -7,11 +7,16 @@
   {
     "label": "LinkedIn",
     "handle": "linkedin.com/in/kenpydev",
-    "url": "https://ph.linkedin.com/in/kenpydev"
+    "url": "https://www.linkedin.com/in/kenpydev-v2"
   },
   {
     "label": "Resume",
     "handle": "resume.pdf",
     "url": "resume.pdf"
+  },
+  {
+    "label": "Facebook",
+    "handle": "Ken Panio",
+    "url": "https://www.facebook.com/61595146642907"  
   }
 ]
